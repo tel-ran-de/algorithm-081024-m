@@ -18,7 +18,7 @@ public class LinealSearch {
         int[] array3 = {1, 6, 3, 4, 5, 2};
 
         hasANumber(array1,2);
-        hasANumber(array1,2);
-        hasANumber(array1,2);
+        hasANumber(array2,2);
+        hasANumber(array3,2);
     }
 }
