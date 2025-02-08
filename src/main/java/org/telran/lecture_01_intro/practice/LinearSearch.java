@@ -17,7 +17,8 @@ public class LinearSearch {
         for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] == target_number) {
                 System.out.println("Найдено значение " + target_number);
-            } else {
+                break;
+            } else if (i == numbers.length - 1) {
                 System.out.println("Значение " + target_number + " не найдено");
             }
         }
