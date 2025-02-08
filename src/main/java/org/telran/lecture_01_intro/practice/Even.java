@@ -13,6 +13,6 @@ public class Even {
     public static void main(String[] args) {
         isEven(5);
         isEven(0);
-        isEven(20058);
+        isEven(Integer.MAX_VALUE);
     }
 }
