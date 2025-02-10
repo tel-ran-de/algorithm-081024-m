@@ -14,5 +14,7 @@ function factorial(number) {
     }
     return result;
 }
+    console.log(factorial);
+
 
 // Оценить сложность алгоритма
