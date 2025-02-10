@@ -7,7 +7,18 @@
 
 // Решение
 function linear_search(numbers, target_number) {
-    // You code...
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] === target_number) {
+            return i;
+        } 
+    }
+    return -1;
 }
 
-// Оценить сложность алгоритма
+let num = [2, 7, -4, 4, 3, 0, 5, 10]
+
+console.log(linear_search(num, 10)); // 7
+console.log(linear_search(num, 6)); // -1
+console.log(linear_search(num, 2)); // 0
+
+// Оценить сложность алгоритма O(n) - линейная
