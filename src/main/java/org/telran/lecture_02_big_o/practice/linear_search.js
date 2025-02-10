@@ -7,7 +7,14 @@
 
 // Решение
 function linear_search(numbers, target_number) {
-    // You code...
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] === target_number) {
+            return numbers[i]
+        }
+    }
+    return -1
+}
+console.log(linear_search(numbers, target_number));
 }
 
-// Оценить сложность алгоритма
+// Оценить сложность алгоритма 0(n);
