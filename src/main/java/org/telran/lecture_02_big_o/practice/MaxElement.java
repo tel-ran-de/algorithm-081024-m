@@ -10,13 +10,19 @@ package org.telran.lecture_02_big_o.practice;
 
 public class MaxElement {
     public static void main(String[] args) {
-
+        int[] numbers = {3,5,1,7,2,6,4};
+        System.out.println(maxElement(numbers));
     }
 
     public static int maxElement(int[] numbers) {
-        // You code ...
-        return 0;
+        int max = numbers[0];
+        for (int number : numbers) {
+            if (number > max) {
+                max = number;
+            }
+        }
+        return max;
     }
 }
 
-// Оценить сложность алгоритма
+// Оценить сложность алгоритма : O(n)

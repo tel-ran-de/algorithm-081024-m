@@ -10,13 +10,23 @@ package org.telran.lecture_02_big_o.practice;
 public class LinearSearch {
     public static void main(String[] args) {
 
+        int[] numbers = {3,5,1,7,2,6,4};
+        System.out.println(linearSearch(numbers,2));
+
     }
 
     public static int linearSearch(int[] numbers, int target_number) {
-        // You code...
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] == target_number) {
+                return i;
+            }
+        }
         return -1;
     }
 }
 
 
 // Оценить сложность алгоритма
+// best: O(1)
+// worst: O(n)
+// aver: O(n/2)
