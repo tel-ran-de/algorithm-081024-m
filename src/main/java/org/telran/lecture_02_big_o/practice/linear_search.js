@@ -6,8 +6,18 @@
 //     Если элемент не найден, вернуть -1.
 
 // Решение
-function linear_search(numbers, target_number) {
-    // You code...
+    const array = [4, 3, 2, 34, 21];
+    function linear_search(numbers, target_number) {
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] === target_number) {
+            return i; 
+        }
+    }
+    return -1; 
+}
+
+console.log(linear_search(array, 30)); 
+
 }
 
 // Оценить сложность алгоритма

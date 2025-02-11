@@ -6,8 +6,21 @@
 //     Если текущий элемент больше наибольшего, обновить значение наибольшего.
 //     Вернуть наибольший элемент.
 
+const array = [1453, 520, 2455, 15460, 7565];
 function max_element(numbers) {
-    // You code ...
+    if (numbers.length === 0) { 
+    }
+    let max = numbers[0]; 
+    for (let i = 1; i < numbers.length; i++) {
+    if (numbers[i] > max) {
+    max = numbers[i];
+        }
+    }
+ return max;
 }
+
+
+console.log(max_element(array)); 
+
 
 // Оценить сложность алгоритма
