@@ -6,7 +6,12 @@
 //     Вернуть результат.
 
 function factorial(number) {
-    // You code ...
+       let result = 1
+    for (let i = 1; i <= number; i++) {
+        result = result * i   
+    }
+    return result
 }
 
 // Оценить сложность алгоритма
+O(n)
