@@ -6,8 +6,16 @@
 //     Если текущий элемент больше наибольшего, обновить значение наибольшего.
 //     Вернуть наибольший элемент.
 
-function max_element(numbers) {
-    // You code ...
+   function max_element(numbers1) {
+    let max = numbers1[0]
+    for (let i = 0; i < numbers1.length; i++) {
+        if(max <= numbers1[i]) {
+            max = numbers1[i]
+        }
+    } 
+    return max  
+}
+console.log(max_element(numbers1));
 }
 
-// Оценить сложность алгоритма
+// Оценить сложность алгоритма 0(n);
