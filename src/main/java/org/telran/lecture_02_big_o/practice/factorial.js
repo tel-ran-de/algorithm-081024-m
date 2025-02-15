@@ -6,7 +6,13 @@
 //     Вернуть результат.
 
 function factorial(number) {
-    // You code ...
+    let result = 1
+    for (let i = 1; i <= number; i++) {
+        result *= i
+    }
+    return result
+}
+console.log(factorial(4));
 }
 
-// Оценить сложность алгоритма
+// Оценить сложность алгоритма 0(1);
