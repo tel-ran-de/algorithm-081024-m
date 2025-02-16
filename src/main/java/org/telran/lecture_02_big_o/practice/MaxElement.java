@@ -10,13 +10,22 @@ package org.telran.lecture_02_big_o.practice;
 
 public class MaxElement {
     public static void main(String[] args) {
+        int[] array = {2, 6, 2, 1, 9, 22, -3, 4, 7};
 
+        System.out.println(maxElement(array));
     }
 
     public static int maxElement(int[] numbers) {
         // You code ...
-        return 0;
+        int max = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] >= max){
+                max = numbers[i];
+            }
+        }
+        return max;
     }
 }
 
 // Оценить сложность алгоритма
+// Сложность константная линейная O(n) - единоразовый перебор всех элементов
