@@ -10,13 +10,23 @@ package org.telran.lecture_02_big_o.practice;
 
 public class MaxElement {
     public static void main(String[] args) {
-
+    int[] numbers = {3, 7, 2, 9, 5, 10, 6};
+        System.out.println("Наибольший элемент: " + maxElement(numbers));
     }
 
     public static int maxElement(int[] numbers) {
-        // You code ...
-        return 0;
+        if (arr == null || arr.length == 0) {
+            throw new IllegalArgumentException("Массив не должен быть пустым!");
+        }
+        int max = arr[0];
+        for (int num : arr) {
+            if (num > max) {
+                max = num;
+            }
+        }
+        return max;
     }
 }
 
 // Оценить сложность алгоритма
+//Сложность алгоритма: O(n), так как проходим по массиву один раз.
