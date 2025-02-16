@@ -9,11 +9,17 @@ package org.telran.lecture_02_big_o.practice;
 
 public class LinearSearch {
     public static void main(String[] args) {
-
+        int[] numbers = {3, 7, 2, 9, 5, 10, 6};
+        int target = 9;
+        System.out.println(linearSearch(numbers, target));
     }
 
     public static int linearSearch(int[] numbers, int target_number) {
-        // You code...
+         for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target) {
+                return i;
+            }
+        }
         return -1;
     }
 }
