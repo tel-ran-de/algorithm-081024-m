@@ -1,3 +1,121 @@
-Тестовый файл для проверки отправки решений через GitHub!
+Тестовый файл для проверки отправки решений через GitHub! dima rabtsevich
+// Задача: Найти наибольший элемент в массиве целых чисел.
+
+// Алгоритм:
+// Создать переменную для хранения текущего наибольшего элемента и инициализировать ее первым элементом массива.
+//     Пройти по массиву с начала до конца, сравнивая каждый элемент с текущим наибольшим.
+//     Если текущий элемент больше наибольшего, обновить значение наибольшего.
+//     Вернуть наибольший элемент.
+
+public class MaxElement {
+    public static void main(String[] args) {
+        int[] numbers = {8, 5, 3, 8, 34, 62, 71, 8, 9};
+
+        System.out.println("max element " + maxElement(numbers));
+    }
+
+    public static int maxElement(int[] numbers) {
+        if (numbers == null || numbers.length == 0){
+            throw new IllegalArgumentException("not empty");
+        }
+        int max = numbers[0];
+        for (int i = 0; i < numbers.length; i++) {
+            if(numbers[i] > max){
+                max = numbers[i];
+            }
+        }
+        return max;
+    }
+}
+
+
+// Задача: Найти элемент в массиве целых чисел.
+
+// Алгоритм:
+//     Пройти по массиву с начала до конца, сравнивая каждый элемент с искомым.
+//     Если элемент найден, вернуть его индекс.
+//     Если элемент не найден, вернуть -1.
+
+public class LinearSearch {
+    public static void main(String[] args) {
+        int[] numbers = {3, 5, 1, 7, 45, 7, 22, 71, 9};
+        int target = 7;
+        int index = linearSearch(numbers, target);
+        if (index != -1) {
+            System.out.println("index find" + index);
+        } else {
+            System.out.println("not found");
+        }
+    }
+
+    public static int linearSearch(int[] numbers, int target_number) {
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] == target_number) {
+                return i;
+            }
+
+        }
+        return -1;
+    }
+}
+// Задача: Найти наибольший элемент в массиве целых чисел.
+
+// Алгоритм:
+// Создать переменную для хранения текущего наибольшего элемента и инициализировать ее первым элементом массива.
+//     Пройти по массиву с начала до конца, сравнивая каждый элемент с текущим наибольшим.
+//     Если текущий элемент больше наибольшего, обновить значение наибольшего.
+//     Вернуть наибольший элемент.
+
+public class IsPrime {
+    public static void main(String[] args) {
+int[] numbers = {5, 3, 7, 34, 2, 76, 87, 9, 37, 57};
+int LargePrime = findLargePrime(numbers);
+        System.out.println("Large prime number "+ LargePrime);
+    }
+
+    public static boolean isPrime(int number) {
+      if (number <=1 ){
+          return false;
+      }
+        for (int i = 2; i * i  <= number; i++) {
+            if(number%i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static int findLargePrime(int[]array){
+        int largePrime = -100; //vernet esli net prostyh
+        for(int num : array){
+            if (isPrime(num) && num > largePrime){
+                largePrime =num;
+            }
+        }
+        return largePrime;
+    }
+}
+/ Задача: Вычислить факториал заданного числа.
+
+// Алгоритм:
+// Создать переменную для хранения результата и инициализировать ее единицей.
+//     Умножить результат на все числа от 1 до заданного числа.
+//     Вернуть результат.
+
+public class Factorial {
+    public static void main(String[] args) {
+int number = 7;
+int result = factorial(number);
+        System.out.println("Factorial  " + number + "=" + result);
+    }
+
+    public static int factorial(int n) {
+    int result =1;
+        for (int i = 1; i <= n ; i++) {
+            result *= i;
+        }
+        return result;
+    }
+}
+
 
 Отправьте ваше имя в качестве решения: ...
