@@ -8,34 +8,13 @@
 // Шаг 4: Если искомое число не совпало ни с одним из элементов, выведите "Не найдено".
 
 // Решение
-let numbers = [2, 7, -4, 4, 3, 0, 5, 10]; // n = 8
-
-// best: O(1)
-// worst: O(n)
-// aver: O(n)
-
-// O(2*n) --> O(n)
-// O(500*n) --> O(n)
-// START
-let find = 10;
-for (let i = 0; i < numbers.length; i++) { // O(n) -> 200
-    if (numbers[i] === find){
-        console.log(numbers[i]);
-        break
-    } //
+let numbers = [2, 7, -4, 4, 3, 0, 5, 10];
+target_number = 5;
+// FIXME: данное решение содержит ошибку, найдите ее и исправьте.
+for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] === target_number) {
+        console.log("Найдено значение ", target_number);
+    } else {
+        console.log("Значение ", target_number, " не найдено");
+    }
 }
-
-// [2, -4, 6, 10, 1, 0, 8] O(n)
-
-// [-4, 0, 1, 2, 6, 8, 10]
-// [6, 8, 10]
-// [10]
-// O(log n)
-
-// find = 10
-
-
-// 5! = 1*2*3*4*5 = 120
-// 6! = 1*2*3*4*5*6 = 720
-
-
