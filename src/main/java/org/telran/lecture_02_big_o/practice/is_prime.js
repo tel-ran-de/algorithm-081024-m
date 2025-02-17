@@ -7,7 +7,24 @@
 //     Если ни одно из чисел не является делителем, то число простое.
 
 function is_prime(number) {
-    // You code ...
+    if(number === 2){
+        return true;
+    }
+    if(number % 2 === 0 || number ===1){
+        return false
+    }
+    for(let i = 3; i * i <= number; i+=2){
+        if(number % i === 0){
+            return false
+        }
+    }
+    return true
 }
+console.log(`is_prime(1) - ${is_prime(1)}`);
+console.log(`is_prime(2) - ${is_prime(2)}`);
+console.log(`is_prime(5) - ${is_prime(5)}`);
+console.log(`is_prime(9) - ${is_prime(9)}`);
+console.log(`is_prime(11) - ${is_prime(11)}`);
+console.log(`is_prime(2777) - ${is_prime(2777)}`);
 
-// Оценить сложность алгоритма
+// Оценить сложность алгоритма O(v(n))
