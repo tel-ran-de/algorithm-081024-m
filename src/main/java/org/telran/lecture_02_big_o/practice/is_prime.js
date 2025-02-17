@@ -7,7 +7,28 @@
 //     Если ни одно из чисел не является делителем, то число простое.
 
 function is_prime(number) {
-    // You code ...
+    if (number < 2) {
+        console.log("число не простое")
+        return false;
+    }
+    if (number === 2) {
+        console.log("число простое")
+        return true;
+    }
+    if (number % 2 === 0) {
+        console.log("число не простое")
+        return false;
+    }
+    for (let i = 3; i <= Math.sqrt(number); i += 2) {
+        if (number % i === 0) {
+            console.log("число не простое")
+            return false
+        }
+    }
+    console.log("число простое")
+    return true
 }
+
+is_prime(10)
 
 // Оценить сложность алгоритма
