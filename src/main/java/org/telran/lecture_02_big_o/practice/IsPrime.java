@@ -11,6 +11,8 @@ package org.telran.lecture_02_big_o.practice;
 public class IsPrime {
     public static void main(String[] args) {
         int[] array = {2, 6, 2, 1, 9, 22, -3, 4, 7};
+        int num = 4;
+        System.out.println(isPrime(num));
     }
 
     public static boolean isPrime(int number) {

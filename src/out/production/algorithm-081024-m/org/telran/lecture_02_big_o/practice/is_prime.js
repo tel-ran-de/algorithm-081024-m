@@ -8,7 +8,6 @@
 
 function is_prime(number) {
     // You code ...
-
 }
 
 // Оценить сложность алгоритма

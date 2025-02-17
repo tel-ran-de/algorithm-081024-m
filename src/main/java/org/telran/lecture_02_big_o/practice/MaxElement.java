@@ -11,7 +11,6 @@ package org.telran.lecture_02_big_o.practice;
 public class MaxElement {
     public static void main(String[] args) {
         int[] array = {2, 6, 2, 1, 9, 22, -3, 4, 7};
-
         System.out.println(maxElement(array));
     }
 
