@@ -10,14 +10,24 @@ package org.telran.lecture_02_big_o.practice;
 
 public class IsPrime {
     public static void main(String[] args) {
-
+        int[] array = {2, 6, 2, 1, 9, 22, -3, 4, 7};
+        int num = 4;
+        System.out.println(isPrime(num));
     }
 
     public static boolean isPrime(int number) {
         // You code ...
+        if (number<=1) return false;
+        if (number==2) return true;
+        if (number%2 == 0 ) return false;
+        for (int i = 3; i*i <= number ; i+=2) {
+            if (number%i == 0) return false;
+        }
         return true;
     }
 }
 
 
 // Оценить сложность алгоритма
+// Сложность в лучшем O(1) если мы находим сразу,
+//Сложность O(√n) количество операций растёт пропорционально квадратному корню из числа n
