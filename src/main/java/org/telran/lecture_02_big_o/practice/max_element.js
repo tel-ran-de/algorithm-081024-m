@@ -7,7 +7,17 @@
 //     Вернуть наибольший элемент.
 
 function max_element(numbers) {
-    // You code ...
+        let max = numbers[0]
+        for (let i = 1; i < numbers.length; i++) {
+               if (numbers[i] > max) {
+                max = numbers[i]
+               }      
+        }
+        return max
 }
+console.log(max_element(([1, 2, 3, 6, 4, 5])));
+console.log(max_element(([10, 12, 3, -65, 4, 105])));
+console.log(max_element(([100, 2, 3, 6, -4, 5])));
+console.log(max_element(([1])));
 
-// Оценить сложность алгоритма
+// Оценить сложность алгоритма - O(n)
