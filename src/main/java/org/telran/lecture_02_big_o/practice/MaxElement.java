@@ -10,13 +10,25 @@ package org.telran.lecture_02_big_o.practice;
 
 public class MaxElement {
     public static void main(String[] args) {
-
+        System.out.println("Max element: " + maxElement(new int[]{3, 7, 2, 9, 5, 10, 6}));
+        System.out.println("Max element: " + maxElement(new int[]{-3, -7, 2, -9, -5, -10, 6}));
+        System.out.println("Max element: " + maxElement(new int[]{13, 7, 2, 9, 5, 100, 6}));
+        System.out.println("Max element: " + maxElement(new int[]{1}));
     }
 
     public static int maxElement(int[] numbers) {
-        // You code ...
-        return 0;
+        if (numbers == null || numbers.length == 0){
+            throw  new IllegalArgumentException("Massiv can't be empty!");
+        }
+        int max = numbers[0];
+        for (int num : numbers){
+            if (num > max){
+                max = num;
+            }
+        }
+        return max;
     }
 }
 
 // Оценить сложность алгоритма
+//O(n/2) -> O(1/2 * n) -> O(n)
