@@ -7,8 +7,13 @@ public class Hanoi {
         // start: начальный столбец
         // end: конечный столбец
         // aux: вспомогательный столбец
-
-        // You code...
+        if (n == 1) {
+            System.out.println(start + " --> " + end);
+        } else {
+            hanoi(n - 1, start, aux, end);
+            System.out.println(start + " --> " + end);
+            hanoi(n - 1, aux, end, start);
+        }
     }
 
     public static void main(String[] args) {
