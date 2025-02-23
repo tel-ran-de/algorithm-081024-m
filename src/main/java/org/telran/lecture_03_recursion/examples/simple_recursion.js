@@ -11,7 +11,7 @@ function recursion(n) {
     }
 }
 
-console.log("----------iteration----------");
-iteration(5);
+// console.log("----------iteration----------");
+// iteration(5);
 console.log("----------recursion----------");
 recursion(5);

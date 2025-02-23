@@ -10,11 +10,25 @@ package org.telran.lecture_02_big_o.practice;
 
 public class IsPrime {
     public static void main(String[] args) {
-
+        System.out.println("isPrime(1) = " + isPrime(1));
+        System.out.println("isPrime(2) = " + isPrime(2));
+        System.out.println("isPrime(3) = " + isPrime(3));
+        System.out.println("isPrime(4) = " + isPrime(4));
+        System.out.println("isPrime(9) = " + isPrime(9));
+        System.out.println("isPrime(11) = " + isPrime(11));
+        System.out.println("isPrime(21) = " + isPrime(21));
+        System.out.println("isPrime(427) = " + isPrime(427));
     }
 
     public static boolean isPrime(int number) {
-        // You code ...
+        if (number == 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(number); i += 2) {
+            if (number != i && number % i == 0) {
+                return false;
+            }
+        }
         return true;
     }
 }
