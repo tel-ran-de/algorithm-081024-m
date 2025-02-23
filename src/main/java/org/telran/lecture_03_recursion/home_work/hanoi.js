@@ -4,7 +4,15 @@ function hanoi(n, start, end, aux) {
     // end: конечный столбец
     // aux: вспомогательный столбец
 
-    // You code...
+    function hanoi(n, start, end, aux) {
+    if (n === 1) {
+        console.log(`Перемещаем с ${start} на ${end}`);
+        return;
+    }
+    hanoi(n - 1, start, aux, end);
+    console.log(`Перемещаем с ${start} на ${end}`);
+    hanoi(n - 1, aux, end, start);
 }
 
-hanoi(3, 'A', 'C', 'B'); // Выводит в терминал описание действие по перемещению дисков "A" --> "C"
+hanoi(3, 'A', 'C', 'B');
+}
