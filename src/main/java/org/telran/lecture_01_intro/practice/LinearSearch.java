@@ -13,12 +13,11 @@ public class LinearSearch {
     public static void main(String[] args) {
         int[] numbers = {2, 7, -4, 4, 3, 0, 5, 10};
         int target_number = 5;
-        // FIXED!
+        // FIXME: данное решение содержит ошибку, найдите ее и исправьте.
         for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] == target_number) {
                 System.out.println("Найдено значение " + target_number);
-                break;
-            } else if (i == numbers.length - 1) {
+            } else {
                 System.out.println("Значение " + target_number + " не найдено");
             }
         }

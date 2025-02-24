@@ -11,7 +11,7 @@ public class BinSearch {
     public static void main(String[] args) {
 
         int[] arr1 = {2, 5, 8, 12, 16, 23, 38, 56, 72, 91};
-        int target = 2;
+        int target = 91;
         int result = binarySearchRecursive(arr1, target, 0, arr1.length - 1);
 
         if (result == -1) {
