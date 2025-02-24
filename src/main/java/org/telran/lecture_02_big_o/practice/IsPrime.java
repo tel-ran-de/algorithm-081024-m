@@ -21,10 +21,10 @@ public class IsPrime {
     }
 
     public static boolean isPrime(int number) {
-        if (number == 1) {
+        if (number <= 1 || number != 2 && number % 2 == 0) {
             return false;
         }
-        for (int i = 2; i <= Math.sqrt(number); i += 2) {
+        for (int i = 3; i <= Math.sqrt(number); i += 2) {
             if (number != i && number % i == 0) {
                 return false;
             }
