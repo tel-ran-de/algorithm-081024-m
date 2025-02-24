@@ -10,7 +10,7 @@ public class BinSearch {
 
     public static void main(String[] args) {
         int[] arr = {2, 5, 8, 12, 16, 23, 38, 56, 72, 91};
-        int target = 23;
+        int target = 12;
         int result = binarySearchRecursive(arr, target, 0, arr.length - 1);
 
         if (result == -1) {
@@ -21,9 +21,35 @@ public class BinSearch {
     }
 
     public static int binarySearchRecursive(int[] arr, int target, int left, int right) {
-        // You code ...
-        return -1;
+        int middle = (left + right) / 2;
+
+        if (arr[middle] == target) {
+            return middle;
+        }
+        if (left >= right) {
+            return -1;
+        }
+        if (arr[middle] < target) {
+            left = middle + 1;//work with right
+            return binarySearchRecursive(arr, target, left, right);
+        } else {
+            right = middle - 1;// work with left
+            return binarySearchRecursive(arr, target, left, right);
+        }
+
+
+//            if (left > right) {
+//                return -1;
+//            }
+//            int mid = left + (right - left) / 2;
+//
+//            if (arr[mid] == target) {
+//                return mid;
+//            }
+//
+//            if (arr[mid] > target) {
+//                return binarySearchRecursive(arr, target, left, mid - 1);
+//            }
+//            return binarySearchRecursive(arr, target, mid + 1, right);
     }
-
-
 }

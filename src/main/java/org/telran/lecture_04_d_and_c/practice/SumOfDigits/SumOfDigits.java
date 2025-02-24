@@ -18,12 +18,14 @@ package org.telran.lecture_04_d_and_c.practice.SumOfDigits;
 public class SumOfDigits {
 
     public static int sumOfDigitsRecursive(int n) {
-        // You code ...
-        return 0;
+        if (n == 0) {
+            return 0;
+        }
+        return n % 10 + sumOfDigitsRecursive(n/10);
     }
 
     public static void main(String[] args) {
-        int number = 12345;
+        int number = 12340;
         int result = sumOfDigitsRecursive(number);
         System.out.println("Сумма цифр числа " + number + " равна " + result);
     }
