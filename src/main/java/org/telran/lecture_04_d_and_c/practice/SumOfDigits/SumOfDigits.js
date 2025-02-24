@@ -13,7 +13,12 @@
 // Функция рекурсивно вызывает саму себя с оставшимся числом и добавляет извлеченную цифру к результату рекурсивного вызова.
 
 function sumOfDigitsRecursive(n) {
-    // You code ...
+    if (n === 0){
+    return 0
+   }
+  let lastSymbol = n % 10
+  let cutLastSymbol = Math.floor(n / 10)
+  return lastSymbol + sumOfDigitsRecursive (cutLastSymbol)
 }
 
 const number = 12345;
