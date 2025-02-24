@@ -6,7 +6,7 @@
 // 5. Шаги 1-4 повторяются до тех пор, пока элемент не будет найден или пока не останется пустой диапазон для поиска.
 
 function binarySearchRecursive(arr, target, left, right) {
-    if(left > right){
+    if(left >= right){
         return -1
     }
     const middle = Math.floor((right+left)/2);
