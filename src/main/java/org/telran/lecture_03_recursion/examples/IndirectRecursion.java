@@ -8,14 +8,14 @@ public class IndirectRecursion {
 
     public static void functionA(int number) {
         System.out.println("functionA: " + number);
-        if (number > 0) {
+        if (number != 5) {
             functionB(number - 1);
         }
     }
 
     public static void functionB(int number) {
         System.out.println("functionB: " + number);
-        if (number > 0) {
+        if (number != 5) {
             functionA(number - 1);
         }
     }

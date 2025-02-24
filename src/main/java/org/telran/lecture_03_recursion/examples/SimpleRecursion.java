@@ -5,8 +5,8 @@ public class SimpleRecursion {
     public static void main(String[] args) {
         System.out.println("----------iteration----------");
         functionIteration(5);
-        System.out.println("----------recursion----------");
-        functionRecursion(5);
+//        System.out.println("----------recursion----------");
+//        functionRecursion(5);
     }
 
     private static void functionIteration(int n) {

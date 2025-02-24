@@ -11,23 +11,26 @@ public class IsPalindrome {
     }
 
     public static boolean isPalindrome(String str) {
-        // Приводим строку к нижнему регистру
         str = str.toLowerCase();
 
-        // Базовый случай: пустая строка или строка из одного символа - палиндром
         if (str.length() <= 1) {
             return true;
         }
 
-        // Рекурсивный случай: сравниваем первый и последний символы
         if (str.charAt(0) == str.charAt(str.length() - 1)) {
-            // Если символы совпадают, проверяем оставшуюся часть строки
             return isPalindrome(str.substring(1, str.length() - 1));
         } else {
-            // Если символы не совпадают, строка не палиндром
             return false;
         }
     }
 
 
 }
+
+// isP(кабак)   [0] == [-1]
+// isP(аба)     [0] == [-1]
+// isP(б)       [0] == [-1]
+// isP("")      [0] == [-1]
+
+
+//isPa()
