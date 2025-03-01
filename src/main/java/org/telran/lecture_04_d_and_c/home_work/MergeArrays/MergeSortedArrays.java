@@ -30,8 +30,15 @@ public class MergeSortedArrays {
 
     public static int[] mergeSortedArrays(int[] arr1, int[] arr2) {
         int[] mergedArray = new int[arr1.length + arr2.length];
-        // You code ...
-
+        int index1 = 0;
+        int index2 = 0;
+        for (int i = 0; i < mergedArray.length; i++) {
+            if (index1 < arr1.length && (index2 == arr2.length || arr1[index1] < arr2[index2])) {
+                mergedArray[i] = arr1[index1++];
+            } else {
+                mergedArray[i] = arr2[index2++];
+            }
+        }
         return mergedArray;
     }
 
