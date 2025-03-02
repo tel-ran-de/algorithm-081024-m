@@ -25,9 +25,27 @@
 //Выход: mergedArray = [1, 2, 3]
 
 function mergeSortedArrays(arr1, arr2) {
-    // You code ...
+    function mergeSortedArrays(arr1, arr2) {
+    arr1.sort((a, b) =>
+        a - b)
+  
+    arr2.sort((a, b) =>
+        a - b)
+   
+    let mergedArray = arr1.concat(arr2)
+    mergedArray.sort((a, b) => 
+        a - b)       
+    return mergedArray
+    
 }
-
-const arr1 = [1, 3, 5, 7];
-const arr2 = [2, 4, 6, 8];
+const arr1 = [5, 2, 2, 1];
+const arr2 = [];
 const mergedArray = mergeSortedArrays(arr1, arr2);
+
+console.log(arr1);
+console.log(arr2);
+console.log(mergedArray);
+
+//const arr1 = [1, 3, 5, 7];
+//const arr2 = [2, 4, 6, 8];
+//const mergedArray = mergeSortedArrays(arr1, arr2);
