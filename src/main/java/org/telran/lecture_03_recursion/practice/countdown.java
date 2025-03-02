@@ -11,6 +11,14 @@ public class countdown {
     }
 
     public static void countdown(int n) {
-        // You code...
+        // Печатаем текущее число
+        System.out.print(n + " ");
+
+        // Если n больше 0, продолжаем рекурсию с уменьшением n
+        if (n > 0) {
+            countdown(n - 1);
+            System.out.print(-n + " ");
+
+        }
     }
 }

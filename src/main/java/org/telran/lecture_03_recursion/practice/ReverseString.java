@@ -8,10 +8,14 @@ package org.telran.lecture_03_recursion.practice;
 
 public class ReverseString {
     public static void main(String[] args) {
-        // Примеры использования:
         System.out.println(reverseStringIterative("hello")); // "olleh"
         System.out.println(reverseStringIterative("Java")); // "avaJ"
         System.out.println(reverseStringIterative("12345")); // "54321"
+        System.out.println(reverseStringIterative("12345"));// "54321"
+        System.out.println("****  recursion ****");
+        System.out.println(reverseString("hello")); // "olleh"
+        System.out.println(reverseString("Java")); // "avaJ"
+        System.out.println(reverseString("12345"));// "54321"
     }
 
     public static String reverseStringIterative(String str) {
@@ -26,7 +30,9 @@ public class ReverseString {
     }
 
     public static String reverseString(String str) {
-        // You code...
-        return "";
+        if (str.isEmpty()) {
+            return str;
+        }
+        return reverseString(str.substring(1)) + str.charAt(0);
     }
 }
