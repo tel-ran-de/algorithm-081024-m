@@ -25,7 +25,25 @@
 //Выход: mergedArray = [1, 2, 3]
 
 function mergeSortedArrays(arr1, arr2) {
-    // You code ...
+   const mergedArray = []
+    let i = 0
+    let j = 0
+    for (; i < arr1.length && j < arr2.length;) {
+        if (arr1[i] <= arr2[j]) {
+            mergedArray.push(arr1[i]);
+            i++;
+        } else {
+            mergedArray.push(arr2[j]);
+            j++;
+        }
+    }
+    for (; i < arr1.length; i++) {
+        mergedArray.push(arr1[i]);
+    }
+    for (; j < arr2.length; j++) {
+        mergedArray.push(arr2[j]);
+    }
+    return mergedArray;
 }
 
 const arr1 = [1, 3, 5, 7];
