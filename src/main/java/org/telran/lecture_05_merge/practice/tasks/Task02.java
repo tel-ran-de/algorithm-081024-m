@@ -10,7 +10,14 @@ import java.util.Scanner;
 public class Task02 {
     public static void main(String[] args) {
         int[] numbers = {2, 4, 8, -5, 0, 7, 12, 0, -4, 10};
-        int a = 0;
-//        ...
+        int a = 10;
+        int sum = 0;
+        for (int num : numbers) {
+            if (num > a) {
+                sum += num;
+            }
+        }
+
+        System.out.println("Сумма элементов, больших " + a + ": " + sum);
     }
 }
