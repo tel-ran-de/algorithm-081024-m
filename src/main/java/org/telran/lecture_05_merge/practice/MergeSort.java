@@ -21,7 +21,15 @@ public class MergeSort {
 
     private static int[] merge(int[] left, int[] right) {
         int[] result = new int[left.length + right.length];
-        // TODO: добавьте реализацию методы
+        int index1 = 0;
+        int index2 = 0;
+        for (int i = 0; i < result.length; i++) {
+            if (index1 < left.length && (index2 == right.length || left[index1] < right[index2])) {
+                result[i] = left[index1++];
+            } else {
+                result[i] = right[index2++];
+            }
+        }
         return result;
     }
 
