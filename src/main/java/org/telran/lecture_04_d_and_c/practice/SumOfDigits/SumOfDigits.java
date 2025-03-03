@@ -18,10 +18,8 @@ package org.telran.lecture_04_d_and_c.practice.SumOfDigits;
 public class SumOfDigits {
 
     public static int sumOfDigitsRecursive(int n) {
-        if (n == 0) {
-            return 0;
-        }
-        return (n % 10) + sumOfDigitsRecursive(n / 10);
+        // You code ...
+        return 0;
     }
 
     public static void main(String[] args) {
