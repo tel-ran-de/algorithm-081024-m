@@ -15,3 +15,14 @@
 // Возможен такой порядок: 10 2 50 1 10
 
 let prices = [2, 1, 10, 50, 10]; // Цены товаров которые вы купили
+
+function task3(arr) {
+    let sorted = mergeSort(arr)
+    let mid = Math.floor(sorted.length / 2);
+    let sum = 0;
+    for (let i = mid; i < sorted.length; i++) {
+        sum += sorted[i]
+    }
+    return sum;
+}
+console.log("Task 3. Рекламная акция: " + task3(prices));
