@@ -1,6 +1,5 @@
 package org.telran.lecture_05_merge.practice;
 
-import java.util.Arrays;
 
 public class MergeSort {
 
