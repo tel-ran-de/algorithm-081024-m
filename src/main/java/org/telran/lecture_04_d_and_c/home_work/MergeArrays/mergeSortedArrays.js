@@ -1,5 +1,3 @@
-package org.telran.lecture_04_d_and_c.home_work.MergeArrays;
-
 // Задача: "Объединение отсортированных массивов"
 // Даны два целочисленных массива arr1 и arr2, каждый из которых отсортирован по возрастанию.
 // Необходимо создать новый целочисленный массив mergedArray,
@@ -26,46 +24,30 @@ package org.telran.lecture_04_d_and_c.home_work.MergeArrays;
 //Вход: arr1 = [], arr2 = [1, 2, 3]
 //Выход: mergedArray = [1, 2, 3]
 
-public class MergeSortedArrays {
-
-    public static int[] mergeSortedArrays(int[] arr1, int[] arr2) {
-        int[] mergedArray = new int[arr1.length + arr2.length];
-        int index1 = 0;
-        int index2 = 0;
-        int indexMerged = 0;
-        // 1
-        while (index1 < arr1.length && index2 < arr2.length) {
-            if (arr1[index1] < arr2[index2]) {
-                mergedArray[indexMerged++] = arr1[index1];
-                index1++;
-            }else{
-                mergedArray[indexMerged++] = arr2[index2];
-                index2++;
-            }
-        }
-        // 2
-        while (index1 < arr1.length){
-            mergedArray[indexMerged] = arr1[index1];
-            index1++;
-            indexMerged++;
-        }
-        while (index2 < arr2.length){
-            mergedArray[indexMerged] = arr2[index2];
-            index2++;
-            indexMerged++;
-        }
-
-        return mergedArray;
-    }
-
-    public static void main(String[] args) {
-        int[] arr1 = {-1, 3};
-        int[] arr2 = {-4, -3, 6, 8};
-        int[] mergedArray = mergeSortedArrays(arr1, arr2);
-
-        System.out.print("Объединенный массив: ");
-        for (int num : mergedArray) {
-            System.out.print(num + " ");
+function mergeSortedArrays(arr1, arr2) {
+    let index1 = 0;
+    let index2 = 0;
+    let mergedArray = [];
+    // 1
+    while (index1 < arr1.length && index2 < arr2.length) {
+        if (arr1[index1] < arr2[index2]) {
+            mergedArray.push(arr1[index1++]);
+        }else{
+            mergedArray.push(arr2[index2++]);
         }
     }
+    // 2
+    while (index1 < arr1.length){
+        mergedArray.push(arr1[index1++]);
+    }
+    while (index2 < arr2.length){
+        mergedArray.push(arr2[index2++]);
+    }
+    return mergedArray;
 }
+
+const arr1 = [-1, 3, 5, 5, 7];
+const arr2 = [-4, -3,-2, 6, 11, 12, 45, 48];
+const mergedArray = mergeSortedArrays(arr1, arr2);
+
+console.log(mergedArray);

@@ -1,4 +1,4 @@
-package org.telran.lecture_05_merge.practice.tasks;
+package org.telran.lecture_05_merge.home_work;
 
 // "Рекламная акция"
 // В сети магазинов "Н-Аудио" проводится рекламная акция. Каждый второй товар – бесплатно.
