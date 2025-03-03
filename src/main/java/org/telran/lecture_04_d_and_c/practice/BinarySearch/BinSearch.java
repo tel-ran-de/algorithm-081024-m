@@ -9,8 +9,10 @@ package org.telran.lecture_04_d_and_c.practice.BinarySearch;
 public class BinSearch {
 
     public static void main(String[] args) {
+        //           0  1  2  3   4    5  6   7   8   9
         int[] arr = {2, 5, 8, 12, 16, 23, 38, 56, 72, 91};
-        int target = 12;
+        int target = 8;
+
         int result = binarySearchRecursive(arr, target, 0, arr.length - 1);
 
         if (result == -1) {
@@ -21,35 +23,21 @@ public class BinSearch {
     }
 
     public static int binarySearchRecursive(int[] arr, int target, int left, int right) {
-        int middle = (left + right) / 2;
+        if (left > right) {
+            return -1;
+        }
+        int middle = (right + left) / 2;
 
         if (arr[middle] == target) {
             return middle;
         }
-        if (left >= right) {
-            return -1;
-        }
+
         if (arr[middle] < target) {
-            left = middle + 1;//work with right
-            return binarySearchRecursive(arr, target, left, right);
+            return binarySearchRecursive(arr, target, middle + 1, right); // Ищем в правой части
         } else {
-            right = middle - 1;// work with left
-            return binarySearchRecursive(arr, target, left, right);
+            return binarySearchRecursive(arr, target, left, middle - 1); // Ищем в левой части
         }
 
-
-//            if (left > right) {
-//                return -1;
-//            }
-//            int mid = left + (right - left) / 2;
-//
-//            if (arr[mid] == target) {
-//                return mid;
-//            }
-//
-//            if (arr[mid] > target) {
-//                return binarySearchRecursive(arr, target, left, mid - 1);
-//            }
-//            return binarySearchRecursive(arr, target, mid + 1, right);
     }
 }
+
