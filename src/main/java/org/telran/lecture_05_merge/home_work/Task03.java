@@ -20,6 +20,15 @@ package org.telran.lecture_05_merge.home_work;
 public class Task03 {
     public static void main(String[] args) {
         int[] prices = {2, 1, 10, 50, 10}; // Цены товаров которые вы купили
+        System.out.println(getMaxDiscountedTotal(prices));
+    }
 
+    public static int getMaxDiscountedTotal(int[] prices) {
+        Arrays.sort(prices);
+        int sum = 0;
+        for (int i = prices.length / 2; i < prices.length; i++) {
+            sum += prices[i];
+        }
+        return sum;
     }
 }
