@@ -24,7 +24,7 @@ import static org.telran.lecture_05_merge.practice.MergeSort.mergeSort;
 
 public class Task03 {
     public static void main(String[] args) {
-        int[] prices = {10, 2, 50, 1, 10}; // Цены товаров которые вы купили
+        int[] prices = {10, 2, 50, 1, 10, 30, 7}; // Цены товаров которые вы купили
         int[] sortedPrices = mergeSort(prices);
         System.out.println(Arrays.toString(sortedPrices));
 
