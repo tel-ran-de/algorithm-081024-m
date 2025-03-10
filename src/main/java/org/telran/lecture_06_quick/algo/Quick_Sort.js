@@ -34,3 +34,15 @@ function swap(array, first, second) {
 let testArray = [39, 22, 2, 55, 6, 20];
 quickSort(testArray, 0, testArray.length - 1);
 console.log(testArray);
+
+
+// [20, 2, 12, 4, 8, 3, 5]
+// // pivot = 20
+//
+// [ 2, 12, 4, 1, 3, 6, 20]
+// // pivot = 2
+//
+// [2, 12, 4, 8, 3, 6, 20]
+// // O(n^2)
+// // O(n*log n)
+// // O(n*log n)
