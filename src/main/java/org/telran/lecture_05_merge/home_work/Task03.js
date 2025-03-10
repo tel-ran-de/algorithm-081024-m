@@ -14,4 +14,22 @@
 // Пояснение:
 // Возможен такой порядок: 10 2 50 1 10
 
+function calculateMaxReceiptSum(prices) {
+    prices.sort((a, b) => a - b);
+
+    let sum = 0;
+    let left = 0;
+    let right = prices.length - 1;
+
+    while (left <= right) {
+        sum += prices[right];
+        right--;
+
+        if (left <= right) {
+            left++;
+        }
+    }
+    return sum;
+}
+
 let prices = [2, 1, 10, 50, 10]; // Цены товаров которые вы купили
