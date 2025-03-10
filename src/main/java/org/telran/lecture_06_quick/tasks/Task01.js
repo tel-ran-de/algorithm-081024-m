@@ -3,7 +3,7 @@
 // Используя любой алгоритм сортировки из lecture_6, отсортируйте элементы в порядке возрастания.
 
 const numbers = [3, -5, 0, 4, 12, -2, 10];
-function quickSort(array, start, end) {
+function quickSort(array, start = 0, end = array.length - 1) {
     if (start < end) {
         let indexPivot = partition(array, start, end);
         // smaller to the left
