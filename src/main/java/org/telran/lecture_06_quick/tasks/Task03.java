@@ -14,9 +14,33 @@ package org.telran.lecture_06_quick.tasks;
 // Выход
 // 5
 
+import java.util.Arrays;
+
 public class Task03 {
     public static void main(String[] args) {
         Integer[] results = {1, 3, 4, 3, 5, 6, 7, 7, 6, 1};
 
+        // Сортируем результаты по убыванию
+        Arrays.sort(results, (a, b) -> b - a);
+        System.out.println(Arrays.toString(results));
+
+        // Находим балл третьего места (третье по величине значение)
+        int thirdPlace = results[2];
+
+        // Считаем количество призеров
+        int prizeWinnersCount = 0;
+
+        // Проходим по массиву и считаем участников, чьи баллы равны или больше третьего места
+        for (int score : results) {
+            if (score >= thirdPlace) {
+                prizeWinnersCount++;
+            }
+        }
+
+        // Выводим количество призеров
+        System.out.println("Количество призеров: " + prizeWinnersCount);
     }
 }
+
+
+
