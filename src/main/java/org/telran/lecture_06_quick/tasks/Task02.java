@@ -2,6 +2,7 @@ package org.telran.lecture_06_quick.tasks;
 
 import java.util.Arrays;
 import java.lang.Math;
+import java.util.Comparator;
 
 // "Сумма наибольших по модулю"
 // Дан массив чисел.
@@ -14,17 +15,11 @@ public class Task02 {
         Integer[] numbers = {-25, 136, -13, -224, -128, -67, 128, -21, 4, 211, 0};
 
         System.out.println(Arrays.toString(numbers));
-// Сортировка пузырьком по абсолютному значению
-        for (int i = 0; i < numbers.length; i++) {
-            for (int j = 0; j < numbers.length - 1 - i; j++) {
-                if (Math.abs(numbers[j]) < Math.abs(numbers[j + 1])) {
-                    // Меняем местами элементы, если они идут не по порядку по модулю
-                    int temp = numbers[j];
-                    numbers[j] = numbers[j + 1];
-                    numbers[j + 1] = temp;
-                }
-            }
-        }
+
+        //Arrays.sort(numbers, Comparator.comparing(Math::abs));
+        Arrays.sort(numbers, Comparator.comparing(Math::abs, Comparator.reverseOrder()));
+        //System.out.println(Arrays.toString(numbers));
+
 
         // Выводим отсортированный массив
         System.out.println("Отсортированный массив по модулю: " + Arrays.toString(numbers));
@@ -32,8 +27,11 @@ public class Task02 {
         // Суммируем 5 самых больших элементов по модулю
         int sum = 0;
         for (int i = 0; i < 5; i++) {
-            sum += numbers[i];
+         sum += numbers[i];
         }
+//        for (int i = numbers.length - 5; i < numbers.length; i++) {
+//            sum += numbers[i];
+//        }
 
         System.out.println("Сумма 5-ти самых больших элементов по модулю: " + sum);
     }

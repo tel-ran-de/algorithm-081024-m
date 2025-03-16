@@ -5,24 +5,52 @@ package org.telran.lecture_06_quick.tasks;
 // Используя любой алгоритм сортировки из lecture_6, отсортируйте элементы в порядке возрастания.
 
 
+import java.util.Arrays;
+
+import static org.telran.lecture_06_quick.algo.QuickSort.quickSortRecursive;
+
 public class Task01 {
     public static void main(String[] args) {
         int[] numbers = {2, 4, 8, -5, 0, 7, 12, 0, -4, 10};
-        // Сортировка пузырьком
-        for (int i = 0; i < numbers.length - 1; i++) {
-            for (int j = 0; j < numbers.length - 1 - i; j++) {
-                if (numbers[j] > numbers[j + 1]) {
-                    int temp = numbers[j];
-                    numbers[j] = numbers[j + 1];
-                    numbers[j + 1] = temp;
+        //quickSortRecursive(numbers, 0, numbers.length - 1);
+        quickSortRecursive(numbers);
+        System.out.println(Arrays.toString(numbers));
+    }
+
+        public static void quickSortRecursive(int[] array) {
+            quickSortRecursive(array, 0, array.length-1);
+    }
+        public static void quickSortRecursive(int[] array, int start, int end) {
+            if (start >= end) { // условие выходы из рекурсии
+                return;
+            }
+            int indexPivot = partition(array, start, end);
+            quickSortRecursive(array, start, indexPivot - 1);
+            quickSortRecursive(array, indexPivot + 1, end);
+        }
+
+        private static int partition(int[] array, int partitionStart, int partitionEnd) {
+            int pivot = array[partitionEnd]; //choose pivot element
+            int index = partitionStart;
+
+            for (int i = partitionStart; i < partitionEnd; i++) {
+                if (array[i] <= pivot) {
+                    swap(array, i, index);
+                    index++;
                 }
             }
+            swap(array, partitionEnd, index);
+
+            return index;
         }
-        for (int num : numbers) {
-            System.out.print(num + " ");
+
+        private static void swap(int[] array, int source, int destination) {
+            int temp = array[source];
+            array[source] = array[destination];
+            array[destination] = temp;
         }
     }
-}
+
 
 
 

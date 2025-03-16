@@ -1,5 +1,5 @@
 package org.telran.lecture_06_quick.tasks;
-
+import java.util.Arrays;
 // "Камни"
 // Имеется N камней веса А1,А2,...,АN.
 // Необходимо разбить их на две кучи таким образом, чтобы веса куч отличались не более чем в 2 раза.
@@ -10,7 +10,33 @@ package org.telran.lecture_06_quick.tasks;
 
 public class Task05 {
     public static void main(String[] args) {
+        //int[] stones = {3, 9, 7, 8};
+        int[] stones = {21, 5, 3, 1}; // Можно изменить веса камней
 
+        // Сортируем камни по убыванию, чтобы сначала взять самые тяжелые
+        Arrays.sort(stones);
+
+        // Переменные для суммы двух куч
+        int sum1 = 0;
+        int sum2 = 0;
+
+        // Разделим камни на две кучки
+        for (int i = stones.length - 1; i >= 0; i--) {
+            // Добавляем камень в ту кучу, которая легче
+            if (sum1 <= sum2) {
+                sum1 += stones[i];
+            } else {
+                sum2 += stones[i];
+            }
+        }
+
+        // Проверяем условие, что разница в весах куч не более чем в два раза
+        if (Math.max(sum1, sum2) <= 2 * Math.min(sum1, sum2)) {
+            System.out.println("Вес первой кучи: " + sum1);
+            System.out.println("Вес второй кучи: " + sum2);
+        } else {
+            System.out.println("Разбить на две кучи нельзя");
+        }
     }
 }
 
