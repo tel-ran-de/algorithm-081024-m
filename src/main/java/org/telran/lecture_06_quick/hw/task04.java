@@ -5,7 +5,27 @@ package org.telran.lecture_06_quick.hw;
 
 public class task04 {
     public static void main(String[] args) {
-        String[] words = {};
+        String[] words = {"listen", "silent", "enlist", "rat", "tar", "art", "evil", "vile", "live", "veil", "stone", "tones", "notes", "sky"};
+        System.out.println("words = " + Arrays.toString(words));
+        System.out.println("findAnagrams(words) = " + findAllAnagrams(words));
 
+    }
+
+    public static Map<String, List<String>> findAllAnagrams(String[] words) {
+        Map<String, List<String>> allWords = new HashMap<>();
+        for (String word : words) {
+            char[] letters = word.toCharArray();
+            Arrays.sort(letters);
+            allWords.putIfAbsent(new String(letters), new ArrayList<>());
+            allWords.get(new String(letters)).add(word);
+        }
+
+        Map<String, List<String>> allAnagrams = new HashMap<>();
+        for (Map.Entry<String, List<String>> entry : allWords.entrySet()) {
+            if (entry.getValue().size() > 1){
+                allAnagrams.put(entry.getKey(),entry.getValue());
+            }
+        }
+        return allAnagrams;
     }
 }
