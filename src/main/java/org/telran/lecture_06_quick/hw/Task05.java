@@ -10,6 +10,23 @@ package org.telran.lecture_06_quick.hw;
 
 public class Task05 {
     public static void main(String[] args) {
+        Integer[] stones = {3, 5, 8, 25, 3, 5, 10};
+        System.out.println("stones = " + Arrays.toString(stones));
+        System.out.println("splitStonesBalanced(stones) = " + Arrays.toString(splitStonesBalanced(stones)));
+    }
 
+    public static int[] splitStonesBalanced(Integer[] stones) {
+        Arrays.sort(stones, Comparator.reverseOrder());
+        int sum1 = 0, sum2 = 0;
+        for (int stone : stones) {
+            if (sum1 <= sum2) {
+                sum1 += stone;
+            } else {
+                sum2 += stone;
+            }
+        }
+        if (sum1 <= sum2 * 2) {
+            return new int[]{sum1, sum2};
+        } else throw new RuntimeException("The stones cannot be split into two piles.");
     }
 }
