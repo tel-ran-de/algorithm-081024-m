@@ -12,4 +12,21 @@
 // Выход
 // 5
 
-let results = [1, 3, 4, 3, 5, 6, 7, 7, 6, 1]
+let results = [1, 7,  3, 4, 3, 7, 6, 7, 7, 6, 1]
+
+let maxResult = results[0];
+for (let i = 1; i < results.length; i++) {
+    if (results[i] > maxResult) {
+        maxResult = results[i];
+    }
+}
+// Определяем пороговое значение для диплома III степени
+let threshold = maxResult - 2;
+// Подсчитываем количество призеров
+let prizerCount = 0;
+for (let i = 0; i < results.length; i++) {
+    if (results[i] >= threshold) {
+        prizerCount++;
+    }
+}
+console.log(`Количество призеров: ${prizerCount}`)

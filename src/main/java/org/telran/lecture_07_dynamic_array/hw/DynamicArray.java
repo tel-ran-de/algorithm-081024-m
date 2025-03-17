@@ -1,4 +1,4 @@
-package org.telran.lecture_07_dynamic_array.practice;
+package org.telran.lecture_07_dynamic_array.hw;
 
 import java.util.Arrays;
 
@@ -91,6 +91,36 @@ public class DynamicArray {
             result[i] = array[i];
         }
         return Arrays.toString(result);
+    }
+
+    /**
+     * Изменяет элемент с заданным индексом на значение data.
+     */
+    public void set(int index, int data) {
+        // TODO-4: напишите реализацию метода
+    }
+
+    /**
+     * Удаляет все элементы из списка.
+     */
+    public void clean() {
+        // TODO-5: напишите реализацию метода
+    }
+
+    /**
+     * Проверяет, существует ли элемент со значением data в списке.
+     */
+    public boolean contains(int data) {
+        // TODO: напишите реализацию метода
+        return false; // Заглушка, замените на реальную реализацию
+    }
+
+    /**
+     * Проверяет, является ли список пустым.
+     */
+    public boolean isEmpty() {
+        // TODO: напишите реализацию метода
+        return true; // Заглушка, замените на реальную реализацию
     }
 
     public int length() {
