@@ -29,38 +29,45 @@ public class DynamicArray {
         count++;
     }
 
+     // function add an element at the end of array
+    public void add(int data) {
+        if (count >= size) { // Есть места не хватает
+            grow(); // увеличить размер в 2 раза
+        }
+        array[count] = data;
+        count++;
+    }
+
     // function remove last element
     public void remove() {
-        // TODO-2: реализовать метод
+        if (count == 0) return;
+        count--;
     }
 
     // function add an element at given index
     public void addAt(int index, int data) {
-        if (count < size) { // Есть места хватает
-            // TODO-3: убрать дублирование кода
-            for (int i = count - 1; i >= index; i--) {
-                array[i + 1] = array[i]; // сдвигаем все элементы вправо от текущего индекса
-            }
-
-            array[index] = data;
-            count++;
-
-        } else { // Есть места не хватает
-            int[] tmp = new int[size * 2]; // Создаем новый в 2 раза больше
-            // Копируем элементы из старого
-            for (int i = 0; i < size; i++) {
-                tmp[i] = array[i];
-            }
-            array = tmp;
-            size *= 2;
-
-            for (int i = count - 1; i >= index; i--) {
-                array[i + 1] = array[i]; // сдвигаем все элементы вправо от текущего индекса
-            }
-
-            array[index] = data;
-            count++;
+        if (index > count) {
+            throw new NullPointerException("Index " + index + " is out of bounds of this array");
         }
+        if (count >= size) { // Есть места не хватает
+            grow(); // увеличить размер в 2 раза
+        }
+        for (int i = count - 1; i >= index; i--) {
+            array[i + 1] = array[i]; // сдвигаем все элементы вправо от текущего индекса
+        }
+
+        array[index] = data;
+        count++;
+    }
+
+    private void grow() {
+        int[] tmp = new int[size * 2]; // Создаем новый в 2 раза больше
+        // Копируем элементы из старого
+        for (int i = 0; i < size; i++) {
+            tmp[i] = array[i];
+        }
+        array = tmp;
+        size *= 2;
     }
 
     // function shift all element of right side from given index in left
@@ -83,8 +90,7 @@ public class DynamicArray {
     }
 
     public int length() {
-        // TODO-1: реализуйте метод
-        return 0;
+        return count;
     }
 
     public static void main(String[] args) {
