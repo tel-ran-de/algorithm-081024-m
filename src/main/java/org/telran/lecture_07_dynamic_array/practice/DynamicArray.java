@@ -40,7 +40,9 @@ public class DynamicArray {
 
     // function remove last element
     public void remove() {
-        if (count == 0) return;
+        if (count == 0) {
+            throw new NullPointerException("Element cannot be delete from an empty array.");
+        }
         count--;
     }
 
