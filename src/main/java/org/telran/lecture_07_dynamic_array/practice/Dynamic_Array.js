@@ -24,7 +24,8 @@ class DynamicArray {
 
     // function remove last element
     remove() {
-        // TODO-2: реализовать метод
+        if(this.size === this.count){
+            return this.count - 1;
     }
 
     // function add an element at given index
@@ -34,8 +35,6 @@ class DynamicArray {
             for (let i = this.count - 1; i >= index; i--) {
                 this.array[i + 1] = this.array[i]; // сдвигаем все элементы вправо от текущего индекса
             }
-            this.array[index] = data;
-            this.count++;
         } else { // Есть места не хватает
             let tmp = new Array(this.size * 2); // Создаем новый в 2 раза больше
             // Копируем элементы из старого
@@ -44,10 +43,9 @@ class DynamicArray {
             }
             this.array = tmp;
             this.size *= 2;
-            this.array[index] = data;
-            this.count++;
         }
-
+         this.array[index] = data;
+            this.count++;
     }
 
     // function add an element at given index
@@ -66,7 +64,7 @@ class DynamicArray {
     }
 
     length() {
-        // TODO-1: реализуйте метод
+        return this.count;
     }
 }
 
