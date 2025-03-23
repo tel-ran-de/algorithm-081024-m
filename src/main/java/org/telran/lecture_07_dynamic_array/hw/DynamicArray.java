@@ -4,16 +4,16 @@ import java.util.Arrays;
 
 public class DynamicArray {
     private int[] array; // внутренний массив для хранения элементов
-    private int count; // логический размер - сколько элементов храним
-    private int size; // физический размер - сколько памяти выделили
+    private int count; // физический размер - сколько элементов храним
+    private int size; // логический размер - сколько памяти выделили
 
     public DynamicArray() {
-        array = new int[1]; // 1 -> 2 -> 4 -> 8 -> 16 -> 32
+        array = new int[1];
         count = 0;
         size = 1;
     }
 
-    private void growSize() {
+    private void growSize(){
         int[] tmp = new int[size * 2]; // Создаем новый в 2 раза больше
         // Копируем элементы из старого
         for (int i = 0; i < size; i++) {
@@ -22,12 +22,12 @@ public class DynamicArray {
         array = tmp;
         size *= 2;
     }
-
-
+    //DRY - don't repeat yourself
     // function add an element at the end of array
     public void add(int data) {
         if (count >= size) { // Есть места не хватает
             growSize();
+
         }
         array[count] = data;
         count++;
@@ -35,38 +35,40 @@ public class DynamicArray {
 
     // function remove last element
     public void remove() {
-        // TODO-2[complete]: реализовать метод
-        if (this.count == 0) {
-            throw new Error("Empty array");
+        if (count == 0){
+            throw new IllegalArgumentException("Array is empty, cannot remove element.");
         }
-        this.count--;
+        count--;  // Уменьшаем логический размер на 1
     }
 
-    // function add an element at given index
     public void addAt(int index, int data) {
-        if (count < size) { // Есть места хватает
-            // TODO-3: убрать дублирование кода
+        // Проверяем, если места хватает, вставляем элемент в массив
+        if (index < 0 || index > count) {
+            throw new IndexOutOfBoundsException("Invalid index: " + index);
+        }
+        if (count < size) {
+            // Сдвигаем элементы вправо, начиная с последнего и до индекса
             for (int i = count - 1; i >= index; i--) {
-                array[i + 1] = array[i]; // сдвигаем все элементы вправо от текущего индекса
+                array[i + 1] = array[i];
             }
 
-            array[index] = data;
-            count++;
+            array[index] = data;  // Вставляем новый элемент
+            count++;  // Увеличиваем количество элементов
+        } else {
+            // Если места не хватает, увеличиваем размер массива
+            growSize();  // Вызываем метод для увеличения размера массива
 
-        } else { // Есть места не хватает
-            growSize();
-
-            for (int i = count - 1; i >= index; i--) {
-                array[i + 1] = array[i]; // сдвигаем все элементы вправо от текущего индекса
-            }
-
-            array[index] = data;
-            count++;
+            array[index] = data;  // Вставляем новый элемент
+            count++;  // Увеличиваем количество элементов
         }
     }
+
 
     // function shift all element of right side from given index in left
     public void removeAt(int index) {
+//        if (index < 0 || index >= count) {
+//            throw new IndexOutOfBoundsException("Invalid index: " + index);
+//        }
         if (count > 0) {
             for (int i = index; i < count - 1; i++) {
                 array[i] = array[i + 1]; // сдвигаем все элементы влево до текущего индекса
@@ -93,48 +95,83 @@ public class DynamicArray {
         return Arrays.toString(result);
     }
 
-    /**
-     * Изменяет элемент с заданным индексом на значение data.
-     */
+    // Устанавливает новое значение элемента по индексу
     public void set(int index, int data) {
-        // TODO-4: напишите реализацию метода
+        if (index < 0 || index >= count) {
+            throw new IndexOutOfBoundsException("Invalid index: " + index);
+        }
+        array[index] = data;
     }
 
-    /**
-     * Удаляет все элементы из списка.
-     */
+    // Полностью очищает массив
     public void clean() {
-        // TODO-5: напишите реализацию метода
+        array = new int[1]; // Создаем новый массив размером 1
+        count = 0;
+        size = 1;
     }
 
-    /**
-     * Проверяет, существует ли элемент со значением data в списке.
-     */
+    // Проверяет, содержит ли массив данный элемент
     public boolean contains(int data) {
-        // TODO: напишите реализацию метода
-        return false; // Заглушка, замените на реальную реализацию
+        for (int i = 0; i < count; i++) {
+            if (array[i] == data) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    /**
-     * Проверяет, является ли список пустым.
-     */
+    // Проверяет, пуст ли массив
     public boolean isEmpty() {
-        // TODO: напишите реализацию метода
-        return true; // Заглушка, замените на реальную реализацию
+        return count == 0;
     }
 
     public int length() {
-        // TODO-1[complete]: реализуйте метод
-        return count;
+        return this.count;
+//        return count;
     }
 
     public static void main(String[] args) {
+        //test DynamicArray
         DynamicArray data = new DynamicArray();
+//        data.remove();
+//        System.out.println(Arrays.toString(data.getArray()));
+//        System.out.println("Length: " + data.length());
         data.add(1);
         data.add(2);
         data.add(3);
-
         System.out.println(Arrays.toString(data.getArray()));
         System.out.println(data);
+        System.out.println("Length: " + data.length());
+        System.out.println();
+
+        data.remove();
+        System.out.println(Arrays.toString(data.getArray()));
+        System.out.println("Length: " + data.length());
+
+        // Добавляем элемент в середину
+        data.addAt(1, 15);
+        System.out.print("После добавления элемента 15 на позицию 1: ");
+        data.printArray();
+
+        data.removeAt(1); // Удаляем последний элемент
+        System.out.println("Array after remove: " + Arrays.toString(data.getArray()));
+        System.out.println("Length after remove: " + data.length());
+
+        data.set(1, 99);
+        System.out.println(data);
+
+        System.out.println("Содержит ли 99? " + data.contains(99));
+        System.out.println("Содержит ли 5? " + data.contains(5));
+
+        System.out.println("Пуст ли массив? " + data.isEmpty());
+
+        data.clean();
+        System.out.println("После очистки: " + data);
+        System.out.println("Пуст ли массив? " + data.isEmpty());
+    }
+
+
+    private void printArray() {
+        System.out.println("Array: " + Arrays.toString(getArray()));
     }
 }
