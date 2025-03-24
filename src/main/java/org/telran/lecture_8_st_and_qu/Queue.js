@@ -54,3 +54,30 @@ class Queue {
 }
 
 const queue = new Queue();
+
+// [][][][][]
+// .enqueue(5)
+// [5][][][][]
+// .enqueue(4)
+// [5][4][][][]
+// [5][4][3][2][1]
+// .dequeue() O(n)
+// [5][4][3][2][1]
+// [4][3][2][1][x]
+
+//  h           t
+// [5][4][3][2][1]
+// .dequeue()
+//     h        t
+// [5][4][3][2][1]
+// .dequeue()
+//        h     t=4 c=5
+// [5][4][3][2][1]
+// .enqueue(8)
+
+// t = 4 -> 5 % 5 -> 0 + 1 -> 1 % 5 -> 1
+// t = 0 -> 1 -> 2 -> 3 -> 4 -> 0 -> 1
+// this.tail = (this.tail + 1) % this.capacity;
+//
+// this.tail += 1;
+// if (this.tail >= this.capacity)  this.tail = 0;

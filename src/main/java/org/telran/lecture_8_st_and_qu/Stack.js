@@ -2,7 +2,7 @@
 class Stack {
     constructor(size = 100) {
         this.top = -1;
-        this.capacity = size
+        this.capacity = size;
         this.data = new Array(size);
     }
 
@@ -10,30 +10,31 @@ class Stack {
         return (this.top < 0);
     }
 
+    isFull(){
+        return this.top >= (this.capacity - 1)
+    }
+
     push(x) {
-        if (this.top >= (this.capacity - 1)) {
-            console.error("Stack Overflow");
-            return false;
+        if (this.isFull()) {
+            throw new Error("Stack Overflow");
         } else {
             this.data[++this.top] = x;
-            console.log(x + " pushed into stack");
+            // console.log(x + " pushed into stack");
             return true;
         }
     }
 
     pop() {
-        if (this.top < 0) {
-            console.error("Stack Underflow");
-            return 0;
+        if (this.isEmpty()) {
+            throw new Error("Stack Underflow");
         } else {
             return this.data[this.top--];
         }
     }
 
     peek() {
-        if (this.top < 0) {
-            console.log("Stack Underflow");
-            return 0;
+        if (this.isEmpty()) {
+            throw new Error("Stack Underflow");
         } else {
             return this.data[this.top];
         }
