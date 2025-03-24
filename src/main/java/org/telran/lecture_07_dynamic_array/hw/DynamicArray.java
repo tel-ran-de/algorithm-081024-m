@@ -7,10 +7,15 @@ public class DynamicArray {
     private int count; // физический размер - сколько элементов храним
     private int size; // логический размер - сколько памяти выделили
 
-    public DynamicArray() {
-        array = new int[1];
-        count = 0;
-        size = 1;
+//    public DynamicArray() {
+//        array = new int[1];
+//        count = 0;
+//        size = 1;
+//    }
+    public DynamicArray(int[] initialArray){
+        array = Arrays.copyOf(initialArray, initialArray.length);
+        count = initialArray.length;
+        size = initialArray.length;
     }
 
     private void growSize(){
@@ -132,7 +137,9 @@ public class DynamicArray {
 
     public static void main(String[] args) {
         //test DynamicArray
-        DynamicArray data = new DynamicArray();
+        //DynamicArray data = new DynamicArray();
+        DynamicArray data = new DynamicArray(new int[]{2, 4, 6, 8});
+
 //        data.remove();
 //        System.out.println(Arrays.toString(data.getArray()));
 //        System.out.println("Length: " + data.length());
