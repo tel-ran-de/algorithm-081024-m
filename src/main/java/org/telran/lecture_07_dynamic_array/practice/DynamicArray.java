@@ -13,6 +13,12 @@ public class DynamicArray {
         size = 1;
     }
 
+    public DynamicArray(int[] initialArray) {
+        array = Arrays.copyOf(initialArray, initialArray.length);
+        count = initialArray.length;
+        size = initialArray.length;
+    }
+
     private void growSize() {
         int[] tmp = new int[size * 2]; // Создаем новый в 2 раза больше
         // Копируем элементы из старого
@@ -84,6 +90,14 @@ public class DynamicArray {
         return result;
     }
 
+    public void set(int index, int data) {
+        if (index >= count) {
+//            throw new Error("Index out of range");
+            throw new ArrayIndexOutOfBoundsException("Index " + index + " out of bounds for length " + count);
+        }
+        array[index] = data;
+    }
+
     @Override
     public String toString() {
         int[] result = new int[count];
@@ -93,18 +107,29 @@ public class DynamicArray {
         return Arrays.toString(result);
     }
 
+    public void clean(){
+        array = new int[1];
+        count = 0;
+        size = 1;
+    }
+
     public int length() {
         // TODO-1[complete]: реализуйте метод
         return count;
     }
 
     public static void main(String[] args) {
-        DynamicArray data = new DynamicArray();
+//        DynamicArray data = new DynamicArray();
+        DynamicArray data = new DynamicArray(new int[]{2, 4, 6, 8});
         data.add(1);
         data.add(2);
         data.add(3);
 
-        System.out.println(Arrays.toString(data.getArray()));
+//        System.out.println(Arrays.toString(data.getArray()));
         System.out.println(data);
+//        data.set(2, 4);
+//        System.out.println(data);
+//        data.clean();
+//        System.out.println(data);
     }
 }

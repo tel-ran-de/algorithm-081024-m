@@ -1,10 +1,13 @@
 /** Динамическич массив в реализации класса */
 
 class DynamicArray {
-    constructor() {
-        this.array = new Array(1); // Внутренний массив, для хранения элементов
-        this.count = 0; // Количество занятых ячеек массива
-        this.size = 1;  // Физический размер массива в памяти
+    constructor(data = []) {
+        this.array = new Array(data.length || 1); // Внутренний массив, для хранения элементов
+        for (let i =0; i < data.length; i++){
+            this.array[i] = data[i];
+        }
+        this.count = data.length; // Количество занятых ячеек массива
+        this.size = data.length || 1;  // Физический размер массива в памяти
     }
 
     growSize() {
@@ -67,6 +70,19 @@ class DynamicArray {
         return this.array;
     }
 
+    set(index, data) {
+        if (index >= this.count || index < 0) {
+            throw Error("Индекс за границей массива");
+        }
+        this.array[index] = data;
+    }
+
+    clean() {
+        this.array = new Array(1);
+        this.count = 0;
+        this.size = 1;
+    }
+
     toString() {
         return `[${this.array.slice(0, this.count).join(", ")}]`;
     }
@@ -78,31 +94,15 @@ class DynamicArray {
 }
 
 // test DynamicArray
-let da = new DynamicArray();
+// let da = new DynamicArray();
+let da = new DynamicArray([2, 5, 7, 7, 15]);
+da.add(10); // 0
+da.add(-5); // 1
+da.add(5);  // 2
 // da.remove();
-// console.log(da.length());
-da.add(10);
-da.add(2);
-da.add(-6);
-da.remove();
-// console.log(da.length());
-console.log(`${da}`); // console.log(da.toString());
-
-
-// [1][2][3][4][5][][][]
-// addAt(3, 9)
-// [1][2][3][4][5][][][]
-// [1][2][][3][4][5][][]
-// [1][2][9][3][4][5][][]
-
-
-// [1][2][9][3][4][5][][]
-// removeAt(2)
-// [1][2][9][3][4][5][][]
-// [1][9][3][4][5][][][]
-
-// [1][2][9][3][4][5][][]
-// set(3, 10)  O(1)
-// [1][2][10][3][4][5][][]
-
-// []
+console.log(`${da}`)
+// da.set(2, 8);
+// console.log(`${da}`)
+// da.clean()
+// console.log(`${da}`)
+// console.log(da.length())
