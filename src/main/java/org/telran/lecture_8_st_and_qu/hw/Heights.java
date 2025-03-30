@@ -17,4 +17,29 @@ package org.telran.lecture_8_st_and_qu.hw;
 // Пояснение: будут видны все элементы, так как они расположены по возрастанию
 
 public class Heights {
+  public static void main(String[] args) {
+        // Пример 1
+        int[] heights1 = {8, 2, 3, 11, 11, 10};
+        System.out.println("Видимых зданий: " + countVisibleBuildings(heights1)); // Output: 2
+
+        // Пример 2
+        int[] heights2 = {12, 20, 39, 45, 89};
+        System.out.println("Видимых зданий: " + countVisibleBuildings(heights2)); // Output: 5
+    }
+
+    // Метод для подсчета видимых зданий
+    public static int countVisibleBuildings(int[] heights) {
+        int visibleCount = 0;   // Счетчик видимых зданий
+        int maxHeight = -1;     // Максимальная высота, которую мы видели до текущего здания
+
+        for (int height : heights) {
+            // Если текущее здание выше максимальной высоты, оно видно
+            if (height > maxHeight) {
+                visibleCount++;  // Увеличиваем счетчик видимых зданий
+                maxHeight = height; // Обновляем максимальную высоту
+            }
+        }
+
+        return visibleCount;
+    }
 }
