@@ -39,10 +39,12 @@ public class ValidParentheses {
         for (char c : s.toCharArray()) {
             if (c == '(' || c == '[' || c == '{') {
                 characterStack.push(c);
-            } else if (!characterStack.isEmpty()) {
-                char lastParenthesis = characterStack.pop();
-                if ((lastParenthesis == '(' && c == ')') || (lastParenthesis == '[' && c == ']') || (lastParenthesis == '{' && c == '}')) {
-                    continue;
+            } else {
+                if (!characterStack.isEmpty()) {
+                    char lastParenthesis = characterStack.pop();
+                    if ((lastParenthesis == '(' && c == ')') || (lastParenthesis == '[' && c == ']') || (lastParenthesis == '{' && c == '}')) {
+                        continue;
+                    }
                 }
                 return false;
             }
