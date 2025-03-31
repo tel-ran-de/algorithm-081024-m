@@ -1,4 +1,4 @@
-package org.telran.lecture_8_st_and_qu.practice;
+package org.telran.lecture_08_st_and_qu.practice;
 
 // В магазине продают только по три и по пять воздушных шариков.
 // Можно ли купить ровно k шариков?

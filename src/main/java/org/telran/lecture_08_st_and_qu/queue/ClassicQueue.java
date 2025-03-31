@@ -1,4 +1,4 @@
-package org.telran.lecture_8_st_and_qu.queue;
+package org.telran.lecture_08_st_and_qu.queue;
 
 
 public class ClassicQueue {

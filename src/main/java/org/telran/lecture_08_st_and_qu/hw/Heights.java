@@ -1,4 +1,4 @@
-package org.telran.lecture_8_st_and_qu.practice;
+package org.telran.lecture_08_st_and_qu.hw;
 
 // Дан массив целых чисел размера n.
 // Элементы массива – это высоты некоторых сооружений.

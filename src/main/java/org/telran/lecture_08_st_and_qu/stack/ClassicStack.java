@@ -1,4 +1,4 @@
-package org.telran.lecture_8_st_and_qu.stack;
+package org.telran.lecture_08_st_and_qu.stack;
 
 public class ClassicStack {
 

@@ -1,4 +1,4 @@
-package org.telran.lecture_8_st_and_qu.practice;
+package org.telran.lecture_08_st_and_qu.practice;
 
 // Дана строка s, содержащая только символы '(', ')', '{', '}', '[' и ']'.
 // Определите, является ли входная строка допустимой.
