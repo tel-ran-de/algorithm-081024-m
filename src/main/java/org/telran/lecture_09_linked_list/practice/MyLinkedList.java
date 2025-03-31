@@ -41,6 +41,7 @@ class LinkedList {
             tail.next = newNode;
             tail = newNode;
         }
+        size++;
     }
 
     // Вставка элемента в начало списка
@@ -86,12 +87,33 @@ class LinkedList {
     // Удаление элемента по индексу
     public Integer removeAt(int index) {
         // TODO: напишите реализацию метода
-        return 0;
+        Node current = null;
+        if (index == 0){
+            // 1
+            current = this.head;
+            this.head = current.next;
+        }else if (index == this.size - 1){
+            // 2
+        }else{
+            // 3
+            current = this.head;
+            Node previous = null;
+            for (int i = 0; i < index; i++) {
+                previous = current;
+                current = current.next;
+            }
+            previous.next = current.next;
+        }
+        this.size--;
+        return current.data;
     }
 
     // Получение элемента по индексу
     public Integer getAt(int index) {
-        //  FIXME: доработайте метод, добавив проверку на выход за границы списка
+        //  FIXME[complete]: доработайте метод, добавив проверку на выход за границы списка
+        if (index < 0 || index >= this.size){
+            return null;
+        }
         Node current = head;
         for (int i = 0; i < index; i++) {
             current = current.next;

@@ -25,5 +25,41 @@ package org.telran.lecture_08_st_and_qu.hw;
 // Input: s = "([(]))"
 // Output: false
 
+import java.util.*;
+
 public class ValidParentheses {
+    public static void main(String[] args) {
+        System.out.println(isValid("()")); // true
+        System.out.println(isValid("[()[]{}]")); // true
+        System.out.println(isValid("(]")); // false
+        System.out.println(isValid("([(]))")); // false
+    }
+    public static boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+
+        // Проходим по каждому символу строки
+        for (char c : s.toCharArray()) {
+            // Если это открывающая скобка, кладем ее в стек
+            if (c == '(' || c == '{' || c == '[') {
+                stack.push(c);
+            }
+            // Если это закрывающая скобка
+            else {
+                // Если стек пуст, то нет пары для закрывающей скобки
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                // Проверяем, соответствует ли закрывающая скобка открывающей
+                char top = stack.pop();
+                if ((c == ')' && top != '(') ||
+                        (c == '}' && top != '{') ||
+                        (c == ']' && top != '[')) {
+                    return false;
+                }
+            }
+        }
+
+        // Если стек пуст, все скобки закрыты правильно
+        return stack.isEmpty();
+    }
 }
