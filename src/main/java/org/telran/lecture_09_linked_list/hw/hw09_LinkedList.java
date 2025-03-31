@@ -2,7 +2,7 @@ package org.telran.lecture_09_linked_list.hw;
 
 // Закончите все методы, которые не успели на занятии
 
-public class HwLinkedList {
+public class hw09_LinkedList {
     public static void main(String[] args) {
         // Пример использования
         LinkedList myList = new LinkedList();
