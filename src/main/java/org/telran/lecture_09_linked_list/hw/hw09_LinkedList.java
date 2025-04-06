@@ -60,7 +60,10 @@ class LinkedList {
 
     // Вставка элемента по индексу
     public void insertAt(int data, int index) {
-        //  FIXME: доработайте метод, добавив проверку на выход за границы списка
+        if (index < 0 || index > size){
+                    System.out.println("Index out of bounds");
+                    return;
+                }
         if (index == 0) {
             prepend(data);
         } else if (index == size) {
@@ -81,19 +84,76 @@ class LinkedList {
 
     // Удаление элемента по значению
     public Integer remove(int data) {
-        // TODO: напишите реализацию метода
-        return 0;
+        Node current = head;
+        Node previous = null;
+
+        // Поиск элемента в списке
+        while (current != null && current.data != data) {
+            previous = current;
+            current = current.next;
+        }
+
+        // Если элемент не найден
+        if (current == null) {
+            return null;
+        }
+
+        // Если элемент находится в начале списка
+        if (previous == null) {
+            head = current.next;
+            if (head == null) { // Если список стал пустым
+                tail = null;
+            }
+        } else {
+            previous.next = current.next;
+            if (current == tail) { // Если элемент был последним
+                tail = previous;
+            }
+        }
+
+        size--;
+        return current.data;
     }
 
     // Удаление элемента по индексу
     public Integer removeAt(int index) {
-        // TODO: напишите реализацию метода
-        return 0;
+        if (index < 0 || index >= size) {
+                    System.out.println("Index out of bounds");
+                    return null;
+                }
+
+                if (index == 0) {
+                    if (head == null) return null;
+                    Integer data = head.data;
+                    head = head.next;
+                    if (head == null) {
+                        tail = null;
+                    }
+                    size--;
+                    return data;
+                }
+
+                Node current = head;
+                Node previous = null;
+                for (int i = 0; i < index; i++) {
+                    previous = current;
+                    current = current.next;
+                }
+
+                previous.next = current.next;
+                if (current == tail) {
+                    tail = previous;
+                }
+                size--;
+                return current.data;
     }
 
     // Получение элемента по индексу
     public Integer getAt(int index) {
-        //  FIXME: доработайте метод, добавив проверку на выход за границы списка
+       if (index < 0 || index >= size) {
+                    System.out.println("Index out of bounds");
+                    return null;
+                }
         Node current = head;
         for (int i = 0; i < index; i++) {
             current = current.next;
@@ -113,7 +173,9 @@ class LinkedList {
 
     // Очистка списка
     public void clear() {
-        // TODO: напишите реализацию метода
+        head = null;
+        tail = null;
+        size = 0;
     }
 
     // Вывод списка в консоль
