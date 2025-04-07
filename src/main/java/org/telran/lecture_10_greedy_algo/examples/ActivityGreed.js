@@ -8,20 +8,21 @@ activities = [
 ]
 
 function selectActivities(allActivities) {
-    // TODO: проанализируйте код функции и найдите недостатки реализации
-    //  Подсказка: побочные эффекты
-    allActivities.sort((a, b) => a.finish - b.finish);
-    let selectedActivities = [allActivities[0]]
-    let currentEndTime = allActivities[0].finish;
-    for (let i = 1; i < allActivities.length; i++) {
-        if (allActivities[i].start >= currentEndTime) {
-            currentEndTime = allActivities[i].finish;
-            selectedActivities.push(allActivities[i]);
+    // let copyActivities = allActivities.slice();
+    let copyActivities = [...allActivities];
+    copyActivities.sort((a, b) => a.finish - b.finish);
+    let selectedActivities = [copyActivities[0]]
+    let currentEndTime = copyActivities[0].finish;
+    for (let i = 1; i < copyActivities.length; i++) {
+        if (copyActivities[i].start >= currentEndTime) {
+            currentEndTime = copyActivities[i].finish;
+            selectedActivities.push(copyActivities[i]);
         }
     }
     return selectedActivities;
 }
 
 
-
-console.log(selectActivities(activities));
+console.log(activities);
+selectActivities(activities);
+console.log(activities);
