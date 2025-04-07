@@ -6,7 +6,17 @@
 
 function getChange(sum, coins) {
     let result = [];
-    // You code
+    coins.sort((a, b) => b - a);
+    
+    for (let i = 0; i < coins.length; i++) {
+        const coin = coins[i];
+        const count = Math.floor(sum / coin);
+        for (let j = 0; j < count; j++) {
+            result.push(coin);
+        }
+        sum -= coin * count;
+    }
+    
     return result
 }
 
